@@ -1,8 +1,39 @@
-<<<<<<< HEAD
 Welcome to Nagar Rakshak
 Project info
 
-Live Website: https://nagarrakshak.netlify.app/
+Live Website: https://nagarrakshakapp.netlify.app/
+
+**Technology Stack***
+*Frontend*
+
+Language: TypeScript
+Framework: React with Vite
+UI Components: shadcn/ui & Radix UI
+Styling: Tailwind CSS
+Routing: React Router DOM
+Icons: Lucide React
+
+*Backend & Database (BaaS)*
+Platform: Supabase
+Database: PostgreSQL
+Real-time Updates: Supabase Realtime Subscriptions
+Media Storage: Supabase Storage
+
+**Innovation & Uniqueness**
+
+Unified Pan-India Platform: One single app for all civic issues, usable by any municipality nationwide.
+•
+AI-Powered Automation: Smart routing assigns complaints instantly, while AI detects fraud and prevents duplicates.
+•
+Complete Transparency: A live public timeline tracks every report from submission to resolution.
+•
+Community Prioritization: Proximity alerts and upvoting help authorities focus on the most urgent issues.
+•
+Anonymous Reporting: Ensures citizen safety and encourages more participation.
+•
+Data-Driven Governance: Analytics dashboards provide actionable insights for both citizens and officials.
+•
+Inclusive by Design: Accessible to all through multilingual and tour support.
 
 How can I edit this code?
 
@@ -65,12 +96,6 @@ How can I deploy this project?
 This project is deployed on Netlify.
 You can publish updates by pushing changes to the main branch. Netlify will automatically build and deploy the latest version.
 
-Can I connect a custom domain to Nagar Rakshak?
-
-Yes, you can!
-
-To connect a custom domain, go to your Netlify dashboard, navigate to Domain settings, and add your custom domain.
-Read more here: Netlify Docs – Custom Domains
 =======
-# Nagar-Rakshak-3
+# Nagar-Rakshak-1.0.0.5
 >>>>>>> 797333e40a1a95d537db1b0fe7431d4d400dccf7
