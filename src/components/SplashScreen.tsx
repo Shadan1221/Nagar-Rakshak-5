@@ -12,18 +12,18 @@ interface SplashScreenProps {
 
 const SplashScreen = ({ onNavigate }: SplashScreenProps) => {
   const { t } = useLanguage()
-  
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-civic-orange-light via-background to-civic-green-light">
       {/* Hero Section */}
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/90" />
-        <img 
-          src={heroImage} 
-          alt="Nagar Rakshak - Digital Civic Engagement" 
+        <img
+          src={heroImage}
+          alt="Nagar Rakshak - Digital Civic Engagement"
           className="w-full h-64 md:h-80 object-cover"
         />
-        
+
         {/* Language Selector */}
         <div className="absolute top-4 right-4 z-10">
           <LanguageSelector />
@@ -39,11 +39,11 @@ const SplashScreen = ({ onNavigate }: SplashScreenProps) => {
               <Shield className="h-12 w-12 text-white" />
             </div>
           </div>
-          
+
           <h1 className="text-4xl font-bold bg-gradient-to-r from-civic-saffron to-civic-green bg-clip-text text-transparent mb-2">
             {t('app.title')}
           </h1>
-          
+
           <p className="text-muted-foreground text-lg leading-relaxed mb-6">
             {t('app.subtitle')}
           </p>
@@ -70,13 +70,8 @@ const SplashScreen = ({ onNavigate }: SplashScreenProps) => {
                   <Phone className="h-6 w-6 text-civic-saffron" />
                 </div>
                 <div className="flex-1">
-<<<<<<< HEAD
-                  <h3 className="font-semibold text-lg">Citizen Login</h3>
-                  <p className="text-sm text-muted-foreground">Login with phone number and password</p>
-=======
                   <h3 className="font-semibold text-lg">{t('nav.login')}</h3>
                   <p className="text-sm text-muted-foreground">{t('nav.loginDesc')}</p>
->>>>>>> b730d0776815a722d0ea77726a2febd023df5740
                 </div>
               </div>
             </CardContent>
@@ -90,13 +85,8 @@ const SplashScreen = ({ onNavigate }: SplashScreenProps) => {
                   <UserPlus className="h-6 w-6 text-civic-green" />
                 </div>
                 <div className="flex-1">
-<<<<<<< HEAD
-                  <h3 className="font-semibold text-lg">Citizen Signup</h3>
-                  <p className="text-sm text-muted-foreground">Verify OTP, then set a password</p>
-=======
                   <h3 className="font-semibold text-lg">{t('nav.signup')}</h3>
                   <p className="text-sm text-muted-foreground">{t('nav.signupDesc')}</p>
->>>>>>> b730d0776815a722d0ea77726a2febd023df5740
                 </div>
               </div>
             </CardContent>
