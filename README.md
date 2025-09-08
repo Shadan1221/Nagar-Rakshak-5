@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Welcome to Nagar Rakshak
 Project info
 
@@ -34,6 +35,13 @@ Anonymous Reporting: Ensures citizen safety and encourages more participation.
 Data-Driven Governance: Analytics dashboards provide actionable insights for both citizens and officials.
 •
 Inclusive by Design: Accessible to all through multilingual and tour support.
+=======
+<<<<<<< HEAD
+Welcome to Nagar Rakshak
+Project info
+
+Live Website: https://nagarrakshak.netlify.app/
+>>>>>>> b730d07 (Updated code with latest changes)
 
 How can I edit this code?
 
@@ -96,6 +104,17 @@ How can I deploy this project?
 This project is deployed on Netlify.
 You can publish updates by pushing changes to the main branch. Netlify will automatically build and deploy the latest version.
 
+<<<<<<< HEAD
 =======
 # Nagar-Rakshak-1.0.0.5
+=======
+Can I connect a custom domain to Nagar Rakshak?
+
+Yes, you can!
+
+To connect a custom domain, go to your Netlify dashboard, navigate to Domain settings, and add your custom domain.
+Read more here: Netlify Docs – Custom Domains
+=======
+# Nagar-Rakshak-3
+>>>>>>> b730d07 (Updated code with latest changes)
 >>>>>>> 797333e40a1a95d537db1b0fe7431d4d400dccf7
