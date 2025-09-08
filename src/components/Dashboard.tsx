@@ -18,7 +18,6 @@ const Dashboard = ({ onBack, onNavigate }: DashboardProps) => {
   const [stats, setStats] = useState({ resolved: 0, inProgress: 0, total: 0 })
   const [recentActivity, setRecentActivity] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
-<<<<<<< HEAD
   const [faqs] = useState<Array<{ q: string; a: string }>>([
     { q: 'How do I register a complaint?', a: 'Tap Register Complaint and fill required details. You will get a tracking code.' },
     { q: 'How long does resolution take?', a: 'It depends on issue type and severity. Track status in the dashboard.' },
@@ -38,11 +37,10 @@ const Dashboard = ({ onBack, onNavigate }: DashboardProps) => {
     return () => {
       supabase.removeChannel(channel)
     }
-=======
 
   useEffect(() => {
     fetchDashboardData()
->>>>>>> b730d0776815a722d0ea77726a2febd023df5740
+
   }, [])
 
   const fetchDashboardData = async () => {
