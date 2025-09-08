@@ -2,6 +2,7 @@
 Welcome to Nagar Rakshak
 Project info
 
+<<<<<<< HEAD
 Live Website: https://nagarrakshakapp.netlify.app/
 
 **Technology Stack***
@@ -42,6 +43,9 @@ Project info
 
 Live Website: https://nagarrakshak.netlify.app/
 >>>>>>> b730d07 (Updated code with latest changes)
+=======
+Live Website: https://nagarrakshak.netlify.app/
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
 
 How can I edit this code?
 
@@ -105,9 +109,12 @@ This project is deployed on Netlify.
 You can publish updates by pushing changes to the main branch. Netlify will automatically build and deploy the latest version.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 # Nagar-Rakshak-1.0.0.5
 =======
+=======
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
 Can I connect a custom domain to Nagar Rakshak?
 
 Yes, you can!
@@ -116,5 +123,8 @@ To connect a custom domain, go to your Netlify dashboard, navigate to Domain set
 Read more here: Netlify Docs – Custom Domains
 =======
 # Nagar-Rakshak-3
+<<<<<<< HEAD
 >>>>>>> b730d07 (Updated code with latest changes)
+=======
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
 >>>>>>> 797333e40a1a95d537db1b0fe7431d4d400dccf7

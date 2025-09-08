@@ -7,7 +7,11 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+<<<<<<< HEAD
 import { ArrowLeft, Camera, MapPin, Send, CheckCircle, LoaderCircle, Navigation, Mic, Square, Play } from "lucide-react"
+=======
+import { ArrowLeft, Camera, MapPin, Send, CheckCircle, LoaderCircle, Navigation } from "lucide-react"
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
 import { useToast } from "@/hooks/use-toast"
 import { supabase } from "@/integrations/supabase/client"
 import { cn } from "@/lib/utils"
@@ -35,7 +39,10 @@ const ComplaintRegistration = ({ onBack }: ComplaintRegistrationProps) => {
   const audioChunksRef = useRef<BlobPart[]>([])
   const cameraInputRef = useRef<HTMLInputElement | null>(null)
   const galleryInputRef = useRef<HTMLInputElement | null>(null)
+<<<<<<< HEAD
   const audioElementRef = useRef<HTMLAudioElement | null>(null)
+=======
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
 
 
   const [formData, setFormData] = useState({
@@ -52,8 +59,11 @@ const ComplaintRegistration = ({ onBack }: ComplaintRegistrationProps) => {
     gpsLongitude: null as number | null
   })
 
+<<<<<<< HEAD
   const [isPlaying, setIsPlaying] = useState(false)
 
+=======
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
   const issueTypes = [
     { value: 'streetlight', label: `🔦 ${t('issue.streetlight')}`, category: 'Infrastructure' },
     { value: 'pothole', label: `🕳️ ${t('issue.pothole')}`, category: 'Roads' },
@@ -170,6 +180,7 @@ const ComplaintRegistration = ({ onBack }: ComplaintRegistrationProps) => {
     }
   }
 
+<<<<<<< HEAD
   const togglePlayRecorded = async () => {
     if (!formData.audio) return
     const audioEl = audioElementRef.current
@@ -200,6 +211,8 @@ const ComplaintRegistration = ({ onBack }: ComplaintRegistrationProps) => {
     handleStartRecording()
   }
 
+=======
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
   const getCurrentLocation = () => {
     if (!navigator.geolocation) {
       toast({ title: "Geolocation not supported", variant: "destructive" });
@@ -267,6 +280,7 @@ const ComplaintRegistration = ({ onBack }: ComplaintRegistrationProps) => {
           mediaUrl = publicUrl
         }
   
+<<<<<<< HEAD
         if (formData.audio) {
           const audioName = `voice-${Date.now()}.webm`
           const { error: audioUploadError } = await supabase.storage
@@ -282,6 +296,8 @@ const ComplaintRegistration = ({ onBack }: ComplaintRegistrationProps) => {
           audioUrl = audioPublic.publicUrl
         }
 
+=======
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
         const { data, error } = await supabase
           .from('complaints')
           .insert({
@@ -607,6 +623,7 @@ const ComplaintRegistration = ({ onBack }: ComplaintRegistrationProps) => {
 
             <div>
               <Label htmlFor="description">{t('complaint.description')} *</Label>
+<<<<<<< HEAD
               <div className="relative">
                 <Textarea
                   id="description"
@@ -627,6 +644,16 @@ const ComplaintRegistration = ({ onBack }: ComplaintRegistrationProps) => {
                 </Button>
               </div>
               <audio ref={audioElementRef} className="hidden" src={formData.audio ? URL.createObjectURL(formData.audio) : undefined} onEnded={() => setIsPlaying(false)} />
+=======
+              <Textarea
+                id="description"
+                placeholder={isAnalyzing ? "AI is analyzing the image..." : "Describe the issue or let AI do it for you."}
+                rows={4}
+                value={formData.description}
+                onChange={(e) => setFormData(prev => ({...prev, description: e.target.value}))}
+                disabled={isAnalyzing}
+              />
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
             </div>
 
             <Button 

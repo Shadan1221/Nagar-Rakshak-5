@@ -7,7 +7,10 @@ import HelplineNumbers from "../components/HelplineNumbers.tsx";
 import AdminPortal from "../components/AdminPortal.tsx";
 import AdminLogin from "../components/AdminLogin.tsx";
 import Signup from "../components/Signup.tsx";
+<<<<<<< HEAD
 import AuthLogin from "../components/AuthLogin.tsx";
+=======
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
 
 
 // Pure helper so we can unit-test the back-navigation logic
@@ -39,7 +42,10 @@ const Index = () => {
         return <SplashScreen onNavigate={handleNavigation} />;
 
       case 'login':
+<<<<<<< HEAD
         return <Signup onBack={() => setCurrentScreen('splash')} onNavigate={handleNavigation} />;
+=======
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
       case 'signup':
         return <Signup onBack={() => setCurrentScreen('splash')} onNavigate={handleNavigation} />;
 

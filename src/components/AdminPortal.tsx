@@ -33,6 +33,7 @@ const AdminPortal = ({ onBack }: AdminPortalProps) => {
   const [newStatus, setNewStatus] = useState("")
   const { toast } = useToast()
   const [latestAssignments, setLatestAssignments] = useState<Record<string, { worker?: string | null; contact?: string | null }>>({})
+<<<<<<< HEAD
   const departmentOptions = [
     'Water Department',
     'Electricity Department',
@@ -44,6 +45,8 @@ const AdminPortal = ({ onBack }: AdminPortalProps) => {
     'Transport Authority / RTO',
     'Pollution Control Board',
   ]
+=======
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
 
   useEffect(() => {
     fetchComplaints()
@@ -140,12 +143,17 @@ const AdminPortal = ({ onBack }: AdminPortalProps) => {
   }
 
   const handleAssignWorker = async () => {
+<<<<<<< HEAD
     if (!selectedComplaint || !authorityName || !workerName || !workerContact || !newStatus) {
+=======
+    if (!selectedComplaint || !workerName || !workerContact || !newStatus) {
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
       toast({ title: "Please fill all fields", variant: "destructive" })
       return
     }
 
     try {
+<<<<<<< HEAD
       // Use DB enum casing
       const allowedStatuses = ['Registered','Assigned','In-Progress','Resolved']
       const chosen = newStatus
@@ -157,6 +165,13 @@ const AdminPortal = ({ onBack }: AdminPortalProps) => {
         .from('complaints')
         .update({ 
           status: chosen as any
+=======
+      const { error: updateError } = await supabase
+        .from('complaints')
+        .update({ 
+          status: newStatus as any,
+          assigned_to: authorityName 
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
         })
         .eq('id', selectedComplaint.id)
 
@@ -166,10 +181,17 @@ const AdminPortal = ({ onBack }: AdminPortalProps) => {
         .from('complaint_status_updates')
         .insert({
           complaint_id: selectedComplaint.id,
+<<<<<<< HEAD
           status: chosen as any,
           assigned_to: workerName,
           assigned_contact: workerContact,
           note: authorityName ? `Department: ${authorityName}${statusNote ? ' | ' + statusNote : ''}` : (statusNote || null)
+=======
+          status: newStatus as any,
+          assigned_to: workerName,
+          assigned_contact: workerContact,
+          note: statusNote
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
         })
 
       if (statusError) throw statusError
@@ -188,20 +210,32 @@ const AdminPortal = ({ onBack }: AdminPortalProps) => {
       setSelectedComplaint(null)
       setAuthorityName("")
 
+<<<<<<< HEAD
     } catch (error: any) {
       console.error('Error assigning worker:', error)
       toast({ title: "Error assigning worker", description: error?.message || 'Unknown error', variant: "destructive" })
+=======
+    } catch (error) {
+      console.error('Error assigning worker:', error)
+      toast({ title: "Error assigning worker", variant: "destructive" })
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
     }
   }
 
   const openAssignDialog = (complaint: any) => {
     setSelectedComplaint(complaint)
+<<<<<<< HEAD
     // start with current status, but clear all inputs per request
     setNewStatus(complaint.status || "Assigned")
     setAuthorityName("")
     setWorkerName("")
     setWorkerContact("")
     setStatusNote("")
+=======
+    setNewStatus(complaint.status || "")
+    setAuthorityName(complaint.assigned_to || "")
+    setWorkerName(latestAssignments[complaint.id]?.worker || "")
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
     setAssignDialogOpen(true)
   }
 
@@ -380,7 +414,11 @@ const AdminPortal = ({ onBack }: AdminPortalProps) => {
           </div>
 
           {/* Complaint Management - Filters */}
+<<<<<<< HEAD
           <Card className="border-civic-blue/20 mb-4">
+=======
+          <Card className="border-civic-blue/20 mb-8">
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Filter className="h-5 w-5 text-civic-blue" />
@@ -408,6 +446,7 @@ const AdminPortal = ({ onBack }: AdminPortalProps) => {
               </div>
             </CardContent>
           </Card>
+<<<<<<< HEAD
 
           {/* Inline Live Complaint Map */}
           <Card className="border-civic-saffron/20 mb-8">
@@ -451,6 +490,39 @@ const AdminPortal = ({ onBack }: AdminPortalProps) => {
               </div>
             </CardContent>
           </Card>
+=======
+          <div className="grid md:grid-cols-3 gap-4 mb-8">
+            <Card 
+              className="cursor-pointer hover:shadow-lg transition-shadow border-civic-saffron/20"
+              onClick={() => setShowMap(true)}
+            >
+              <CardContent className="p-6 text-center">
+                <MapPin className="h-12 w-12 text-civic-saffron mx-auto mb-3" />
+                <h3 className="font-semibold mb-2">Live Complaint Map</h3>
+                <p className="text-sm text-muted-foreground">View complaints on GIS map</p>
+                <Badge variant="outline" className="mt-2">
+                  {mapComplaints.length} locations
+                </Badge>
+              </CardContent>
+            </Card>
+
+            <Card className="cursor-pointer hover:shadow-lg transition-shadow border-civic-green/20">
+              <CardContent className="p-6 text-center">
+                <BarChart3 className="h-12 w-12 text-civic-green mx-auto mb-3" />
+                <h3 className="font-semibold mb-2">Analytics Dashboard</h3>
+                <p className="text-sm text-muted-foreground">Performance metrics</p>
+              </CardContent>
+            </Card>
+
+            <Card className="cursor-pointer hover:shadow-lg transition-shadow border-civic-blue/20">
+              <CardContent className="p-6 text-center">
+                <Filter className="h-12 w-12 text-civic-blue mx-auto mb-3" />
+                <h3 className="font-semibold mb-2">Advanced Filters</h3>
+                <p className="text-sm text-muted-foreground">Filter by type, location</p>
+              </CardContent>
+            </Card>
+          </div>
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
 
           {/* Complaint Management View (Filtered List) */}
           <Card className="border-civic-saffron/20">
@@ -530,7 +602,11 @@ const AdminPortal = ({ onBack }: AdminPortalProps) => {
                           variant="outline" 
                           size="sm"
                           onClick={() => openAssignDialog(complaint)}
+<<<<<<< HEAD
                           disabled={(complaint.status || '').toLowerCase() === 'resolved'}
+=======
+                          disabled={complaint.status === 'Resolved'}
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
                         >
                           Assign Worker
                         </Button>
@@ -552,7 +628,11 @@ const AdminPortal = ({ onBack }: AdminPortalProps) => {
           {selectedComplaint && (
             <div className="space-y-4">
               <div>
+<<<<<<< HEAD
                 <Label htmlFor="status">Update Status *</Label>
+=======
+                <Label htmlFor="status">Update Status</Label>
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
                 <Select value={newStatus} onValueChange={setNewStatus}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select new status" />
@@ -564,6 +644,7 @@ const AdminPortal = ({ onBack }: AdminPortalProps) => {
                   </SelectContent>
                 </Select>
               </div>
+<<<<<<< HEAD
               <div>
                 <Label htmlFor="dept-name">Department *</Label>
                 <Select value={authorityName} onValueChange={setAuthorityName}>
@@ -580,6 +661,11 @@ const AdminPortal = ({ onBack }: AdminPortalProps) => {
               
               <div>
                 <Label htmlFor="worker-name">Worker Name *</Label>
+=======
+              
+              <div>
+                <Label htmlFor="worker-name">Worker Name</Label>
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
                 <Input 
                   id="worker-name"
                   value={workerName}
@@ -589,7 +675,11 @@ const AdminPortal = ({ onBack }: AdminPortalProps) => {
               </div>
               
               <div>
+<<<<<<< HEAD
                 <Label htmlFor="worker-contact">Worker Contact Number *</Label>
+=======
+                <Label htmlFor="worker-contact">Worker Contact Number</Label>
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
                 <Input 
                   id="worker-contact"
                   value={workerContact}
@@ -621,7 +711,55 @@ const AdminPortal = ({ onBack }: AdminPortalProps) => {
         </DialogContent>
       </Dialog>
 
+<<<<<<< HEAD
       {/* Map Dialog removed; map is now inline */}
+=======
+      {/* Map Dialog */}
+      <Dialog open={showMap} onOpenChange={setShowMap}>
+        <DialogContent className="max-w-4xl h-[600px]">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <Map className="h-5 w-5 text-civic-saffron" />
+              Live Complaint Map
+            </DialogTitle>
+          </DialogHeader>
+          <div className="flex-1">
+            <div className="h-full bg-muted/20 rounded-lg p-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
+                <div className="space-y-2 overflow-y-auto">
+                  <h4 className="font-semibold">Complaints by Location ({mapComplaints.length})</h4>
+                  {mapComplaints.map((complaint) => (
+                    <div key={complaint.id} className="p-3 bg-white rounded-lg border">
+                      <div className="flex items-center justify-between mb-2">
+                        <h5 className="font-medium text-sm">{complaint.issue_type}</h5>
+                        <Badge className={getStatusColor(complaint.status)}>
+                          {complaint.status}
+                        </Badge>
+                      </div>
+                      <p className="text-xs text-muted-foreground mb-1">
+                        {complaint.complaint_code}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {complaint.city}, {complaint.state}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        📍 {complaint.gps_latitude?.toFixed(4)}, {complaint.gps_longitude?.toFixed(4)}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {new Date(complaint.created_at).toLocaleDateString()}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+                <div className="h-full">
+                  <ComplaintMap complaints={mapComplaints} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
     </>
   )
 }

@@ -21,10 +21,16 @@ const AuthLogin = ({ onBack, onSuccess, onNavigateToSignup }: AuthLoginProps) =>
   const [password, setPassword] = useState("")
   const [otp, setOtp] = useState("")
   const [showPassword, setShowPassword] = useState(false)
+<<<<<<< HEAD
   const [step, setStep] = useState<'method' | 'credentials'>('method')
   const [loading, setLoading] = useState(false)
   const { toast } = useToast()
   // Deprecated for OTP-only flow
+=======
+  const [step, setStep] = useState<'method' | 'credentials' | 'otp'>('method')
+  const [loading, setLoading] = useState(false)
+  const { toast } = useToast()
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
 
   const handlePhoneLogin = async () => {
     const normalizedPhone = phoneNumber.replace(/\D/g, '')
@@ -215,8 +221,16 @@ const AuthLogin = ({ onBack, onSuccess, onNavigateToSignup }: AuthLoginProps) =>
             <CardContent className="space-y-4">
               <Button 
                 onClick={() => {
+<<<<<<< HEAD
                   setLoginType('phone')
                   setStep('credentials')
+=======
+                  toast({
+                    title: "Phone Login",
+                    description: "Logging in as citizen..."
+                  })
+                  onSuccess('citizen')
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
                 }} 
                 className="w-full h-12 bg-blue-600 hover:bg-blue-700"
               >
@@ -286,6 +300,7 @@ const AuthLogin = ({ onBack, onSuccess, onNavigateToSignup }: AuthLoginProps) =>
                       onChange={(e) => setPhoneNumber(e.target.value)}
                     />
                   </div>
+<<<<<<< HEAD
                   <div className="space-y-2">
                     <Label htmlFor="password">Password</Label>
                     <div className="relative">
@@ -312,6 +327,14 @@ const AuthLogin = ({ onBack, onSuccess, onNavigateToSignup }: AuthLoginProps) =>
                     disabled={loading}
                   >
                     {loading ? "Logging in..." : "Login"}
+=======
+                  <Button 
+                    onClick={handlePhoneLogin} 
+                    className="w-full" 
+                    disabled={loading}
+                  >
+                    {loading ? "Sending OTP..." : "Send OTP"}
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
                   </Button>
                 </>
               ) : (
@@ -361,7 +384,52 @@ const AuthLogin = ({ onBack, onSuccess, onNavigateToSignup }: AuthLoginProps) =>
     )
   }
 
+<<<<<<< HEAD
   // OTP step removed for citizen login
+=======
+  if (step === 'otp') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+        <div className="max-w-md mx-auto pt-16">
+          <Button variant="ghost" onClick={() => setStep('credentials')} className="mb-6">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back
+          </Button>
+          
+          <Card className="shadow-lg">
+            <CardHeader className="text-center">
+              <CardTitle className="text-2xl font-bold">Enter OTP</CardTitle>
+              <CardDescription>
+                Enter the 6-digit code sent to {phoneNumber}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="otp">OTP Code</Label>
+                <Input
+                  id="otp"
+                  type="text"
+                  maxLength={6}
+                  placeholder="000000"
+                  value={otp}
+                  onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))}
+                  className="text-center text-2xl tracking-widest"
+                />
+              </div>
+              <Button 
+                onClick={handleOtpVerification} 
+                className="w-full" 
+                disabled={loading || otp.length !== 6}
+              >
+                {loading ? "Verifying..." : "Verify OTP"}
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    )
+  }
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
 
   return null
 }

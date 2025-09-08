@@ -29,6 +29,7 @@ const NotificationSystem = ({ userId }: NotificationSystemProps) => {
   const { toast } = useToast()
 
   useEffect(() => {
+<<<<<<< HEAD
     fetchNotifications()
     // Set up real-time subscription for notifications regardless of userId
     const channel = supabase
@@ -41,6 +42,22 @@ const NotificationSystem = ({ userId }: NotificationSystemProps) => {
 
     return () => {
       supabase.removeChannel(channel)
+=======
+    if (userId) {
+      fetchNotifications()
+      // Set up real-time subscription for notifications
+      const channel = supabase
+        .channel('notifications')
+        .on('postgres_changes', 
+          { event: '*', schema: 'public', table: 'notifications' },
+          () => fetchNotifications()
+        )
+        .subscribe()
+
+      return () => {
+        supabase.removeChannel(channel)
+      }
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
     }
   }, [userId])
 

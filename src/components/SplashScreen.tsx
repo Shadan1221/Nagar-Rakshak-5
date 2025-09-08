@@ -70,8 +70,13 @@ const SplashScreen = ({ onNavigate }: SplashScreenProps) => {
                   <Phone className="h-6 w-6 text-civic-saffron" />
                 </div>
                 <div className="flex-1">
+<<<<<<< HEAD
                   <h3 className="font-semibold text-lg">Citizen Login</h3>
                   <p className="text-sm text-muted-foreground">Login with phone number and password</p>
+=======
+                  <h3 className="font-semibold text-lg">{t('nav.login')}</h3>
+                  <p className="text-sm text-muted-foreground">{t('nav.loginDesc')}</p>
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
                 </div>
               </div>
             </CardContent>
@@ -85,8 +90,13 @@ const SplashScreen = ({ onNavigate }: SplashScreenProps) => {
                   <UserPlus className="h-6 w-6 text-civic-green" />
                 </div>
                 <div className="flex-1">
+<<<<<<< HEAD
                   <h3 className="font-semibold text-lg">Citizen Signup</h3>
                   <p className="text-sm text-muted-foreground">Verify OTP, then set a password</p>
+=======
+                  <h3 className="font-semibold text-lg">{t('nav.signup')}</h3>
+                  <p className="text-sm text-muted-foreground">{t('nav.signupDesc')}</p>
+>>>>>>> b730d0776815a722d0ea77726a2febd023df5740
                 </div>
               </div>
             </CardContent>
